@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>2026 Aronow Award</title>
+  <style>
+    * { margin: 0; padding: 0; text-decoration: none; }
+    html { height: 100%; margin-bottom: 1px; font-weight: normal; }
+    body {
+      cursor: default;
+      background-color: #fff;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: normal;
+    }
+    #container {
+      width: 600px;
+      margin-right: auto;
+      margin-left: auto;
+      text-align: center;
+      background-color: #fff;
+    }
+    #header { width: 100%; padding-top: 15px; }
+    hr {
+      width: 100%;
+      height: 1px;
+      margin: 5px 0;
+      border: 0;
+      color: #ccc;
+      background-color: #cdcdcd;
+    }
+    h1 {
+      color: #930;
+      background-color: #fff;
+      font-size: 28px;
+      font-weight: normal;
+    }
+    h2 {
+      color: gray;
+      background-color: #fff;
+      font-size: 14px;
+      font-weight: normal;
+    }
+    h3 {
+      margin-top: 5px;
+      padding: 5px;
+      color: #930;
+      font-size: 15px;
+      font-weight: normal;
+      text-align: center;
+    }
+    p {
+      padding: 5px;
+      color: #000;
+      background-color: #fff;
+      line-height: 20px;
+    }
+    a { color: #930; background-color: #fff; text-decoration: none; }
+    a:hover { color: #930; background-color: #fff; text-decoration: underline; }
+    .triptych {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 6px;
+      width: max-content;
+      margin: 10px 0 0 50%;
+      padding-bottom: 10px;
+      transform: translateX(-50%);
+    }
+    .triptych img {
+      display: block;
+      width: auto;
+      height: 294px;
+    }
+    .triptych[hidden] { display: none; }
+    .triptych-toggle {
+      border: 0;
+      color: #930;
+      background-color: #fff;
+      font: inherit;
+      cursor: pointer;
+    }
+    .triptych-toggle:hover,
+    .triptych-toggle:focus-visible { text-decoration: underline; }
+    .image-warning {
+      padding-top: 0;
+      color: gray;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <main id="container">
+    <header id="header">
+      <h1>P. M. Aronow Award</h1>
+      <h2>For Bravery in Statistics and the Social Sciences</h2>
+      <hr>
+    </header>
+
+    <h3>Solicitation of Nominations for 2026 Aronow Award</h3>
+
+    <p>
+      The award goes to a scholar for producing high-quality theoretical,
+      methodological or empirical work that defies expectations, displays
+      honesty in presentation, and advances human knowledge.
+    </p>
+
+    <p>The 2026 judging committee consists of P. M. Aronow alone.</p>
+
+    <p>
+      The award consists of a $100 cash award, trophy, and offer of a
+      three-round sparring session with P. M. Aronow (boxing, 2 minute rounds
+      with 16 oz gloves). The award is not associated with any institution, and
+      is being offered by P. M. Aronow personally.
+    </p>
+
+    <p>
+      Nominations (including self-nominations) welcome at
+      <a href="mailto:pmaronow@gmail.com">pmaronow@gmail.com</a>, and are due by
+      September 30, 2026.
+    </p>
+
+    <p>The winner will be announced on October 31, 2026.</p>
+
+    <h3>
+      <button class="triptych-toggle" id="triptych-toggle" type="button" aria-expanded="false" aria-controls="triptych">
+        View the Winner's Prospective Sparring Opponent
+      </button>
+    </h3>
+
+    <p class="image-warning">(warning: images may be upsetting, and include depictions of violence and bodily fluids)</p>
+
+    <figure class="triptych" id="triptych" aria-label="The winner's prospective sparring opponent" hidden>
+      <img data-src="award-triptych-1.jpg" width="598" height="750" alt="The prospective opponent downed during sparring">
+      <img data-src="award-triptych-2.jpg" width="525" height="750" alt="The prospective opponent vomiting over the ring ropes">
+      <img data-src="award-triptych-3.jpg" width="386" height="750" alt="The prospective opponent during sparring">
+      <img data-src="award-triptych-4.jpg" width="439" height="750" alt="Close-up of the prospective opponent after sparring">
+    </figure>
+  </main>
+
+  <script>
+    const toggle = document.getElementById("triptych-toggle");
+    const triptych = document.getElementById("triptych");
+
+    toggle.addEventListener("click", function () {
+      const opening = triptych.hidden;
+
+      if (opening) {
+        triptych.querySelectorAll("img[data-src]").forEach(function (image) {
+          image.src = image.dataset.src;
+          image.removeAttribute("data-src");
+        });
+      }
+
+      triptych.hidden = !opening;
+      toggle.setAttribute("aria-expanded", String(opening));
+      toggle.textContent = opening
+        ? "Hide the Winner's Prospective Sparring Opponent"
+        : "View the Winner's Prospective Sparring Opponent";
+    });
+  </script>
+</body>
+</html>
